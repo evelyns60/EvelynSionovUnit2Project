@@ -55,14 +55,23 @@ public class LinearEquation {
             slopeDisplay = "";
         }
 
+        if ((double)rise / run == 1) {
+            slopeDisplay = "";
+        }
+
+        if ((double)rise / run == -1) {
+            slopeDisplay = "-";
+        }
         return slopeDisplay;
     }
+
     public String equation() {
+
         String equation = "y = " + slopeDisplay() + "x";
         if (yIntercept() == 0) {
             equation += "";
         } else if (yIntercept() < 0) {
-            String yInterceptString = Double.toString(yIntercept()).substring(1);
+            String yInterceptString = Double.toString(yIntercept()).substring(0);
             equation += " - " + yInterceptString;
         } else {
             equation += " + " + yIntercept();
