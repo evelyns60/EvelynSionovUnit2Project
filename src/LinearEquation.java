@@ -40,7 +40,7 @@ public class LinearEquation {
             } else {
                 slopeDisplay = Integer.toString(rise / run);
             }
-        } else if (run < 0 && rise > 0) {                          // is negative sign on denominator
+        } else if (run < 0 && rise > 0) {                          //is negative sign on denominator
             runString = Integer.toString(run);
             slopeDisplay = "-" + rise + "/" + runString.substring(1);
         } else if (run < 0 && rise < 0) {                          //is both numerator and denominator negative
@@ -55,11 +55,11 @@ public class LinearEquation {
             slopeDisplay = "";
         }
 
-        if ((double)rise / run == 1) {
+        if ((double)rise / run == 1) {                             //is slope 1
             slopeDisplay = "";
         }
 
-        if ((double)rise / run == -1) {
+        if ((double)rise / run == -1) {                            //is slope -1
             slopeDisplay = "-";
         }
         return slopeDisplay;
@@ -68,16 +68,16 @@ public class LinearEquation {
     public String equation() {
 
         String equation = "y = " + slopeDisplay() + "x";
-        if (yIntercept() == 0) {
+        if (yIntercept() == 0) {                                   //is y intercept zero
             equation += "";
-        } else if (yIntercept() < 0) {
+        } else if (yIntercept() < 0) {                             //is y intercept negative
             String yInterceptString = Double.toString(yIntercept()).substring(0);
             equation += " - " + yInterceptString;
-        } else {
+        } else {                                                   //is y intercept positive
             equation += " + " + yIntercept();
         }
 
-        if (slopeDisplay() == "0") {
+        if (slopeDisplay() == "0") {                               //is slope zero
             equation = "y = " +equation.substring(equation.indexOf("x") + 4);
         }
         return equation;
